@@ -77,6 +77,8 @@ double kernelMatrix_sum(const arma::vec& x, const arma::vec& y, const float sigm
     exp_f = &expApprox;
   } else if(approx_exp == 2) {
     exp_f = &ident;
+  } else {
+    exp_f = &std::exp;
   }
 
   for(int i = 0; i < n_x; ++i){
@@ -103,8 +105,10 @@ double kernelMatrix_threshold_sum(const arma::vec& x_u, const arma::vec& y_u, co
 
   const arma::vec y = sort(y_u);
   const arma::vec x = sort(x_u);
-  const unsigned int n_x = x.size();
-  const unsigned int n_y = y.size();
+  // const unsigned int n_x = x.size();
+  // const unsigned int n_y = y.size();
+  const int n_x = x.size();
+  const int n_y = y.size();
 
   double b;
   const float c = threshold;
@@ -118,6 +122,8 @@ double kernelMatrix_threshold_sum(const arma::vec& x_u, const arma::vec& y_u, co
     exp_f = &std::exp;
   } else if(approx_exp == 1) {
     exp_f = &expApprox;
+  } else {
+    exp_f = &std::exp;
   }
 
   // int n_start = 0;
