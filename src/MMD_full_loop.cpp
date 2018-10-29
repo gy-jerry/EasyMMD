@@ -115,7 +115,7 @@ double kernelMatrix_threshold_sum(const arma::vec& x_u, const arma::vec& y_u, co
 
   double output_2 = 0;
   int start_p = 0;
-  int end_p = n_y;
+  // int end_p = n_y;
   double (*exp_f)(double);
 
   if(approx_exp == 0){
